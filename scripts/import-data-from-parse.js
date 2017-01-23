@@ -227,9 +227,10 @@
 
  var SERVER_PORT = process.env.PORT || 8080;
  var APP_ID = process.env.APP_ID || 'oss-f8-app-2016';
+ var SERVER_HOST = process.env.HOST || 'localhost';
 
  _node2.default.initialize(APP_ID);
- _node2.default.serverURL = 'http://localhost:' + SERVER_PORT + '/parse';
+ _node2.default.serverURL = 'http://' + SERVER_HOST + ':' + SERVER_PORT + '/parse';
 
  var BLACKLISTED_KEYS = new Set(['objectId', 'createdAt', 'updatedAt']);
  var ID_MAP = new Map();
