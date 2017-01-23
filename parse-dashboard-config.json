@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "serverURL": "https://my-self-hosted.parse-server.com/parse",
+      "serverURL": "https://team-hug-server.herokuapp.com/parse",
       "appId": "team-hug-app",
       "masterKey": "bYqGT9GvwTQTygcsU",
       "appName": "F8-App-2016"
