@@ -37,7 +37,7 @@ const IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 const DASHBOARD_AUTH = process.env.DASHBOARD_AUTH;
 
 Parse.initialize(APP_ID);
-Parse.serverURL = `http://localhost:${SERVER_PORT}/parse`;
+Parse.serverURL = `http://${SERVER_HOST}:${SERVER_PORT}/parse`;
 Parse.masterKey = MASTER_KEY;
 Parse.Cloud.useMasterKey();
 
