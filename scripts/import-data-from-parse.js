@@ -24,8 +24,9 @@ import fetch from 'isomorphic-fetch';
 import Parse from 'parse/node';
 
 const SERVER_PORT = process.env.PORT || 8080;
+const APP_ID = process.env.APP_ID || 'oss-f8-app-2016';
 
-Parse.initialize('oss-f8-app-2016');
+Parse.initialize(APP_ID);
 Parse.serverURL = `http://localhost:${SERVER_PORT}/parse`;
 
 const BLACKLISTED_KEYS = new Set(['objectId', 'createdAt', 'updatedAt']);
