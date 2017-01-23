@@ -5,8 +5,8 @@
   "scripts": {
     "start": "babel-node ./server/server.js",
     "import-data": "babel-node ./scripts/import-data-from-parse.js",
-    "update-schema": "babel-node ./server/schema/updateSchema.js",
     "postinstall": "babel-node ./scripts/import-data-from-parse.js",
+    "update-schema": "babel-node ./server/schema/updateSchema.js",
     "test": "jest",
     "lint": "eslint ."
   },
