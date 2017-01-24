@@ -247,7 +247,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var SERVER_PORT = process.env.PORT || 8080;
 var SERVER_HOST = process.env.HOST || 'localhost';
-var APP_ID = process.env.APP_ID || 'oss-f8-app-2016';
+var APP_ID = process.env.APP_ID || 'team-hug-app';
 var MASTER_KEY = process.env.MASTER_KEY || '70c6093dba5a7e55968a1c7ad3dd3e5a74ef5cac';
 var DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/dev';
 var IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
