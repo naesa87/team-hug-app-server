@@ -251,7 +251,7 @@ var APP_ID = process.env.APP_ID || 'oss-f8-app-2016';
 var MASTER_KEY = process.env.MASTER_KEY || '70c6093dba5a7e55968a1c7ad3dd3e5a74ef5cac';
 var DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/dev';
 var IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
-var DASHBOARD_AUTH = process.env.DASHBOARD_AUTH;
+var DASHBOARD_AUTH = process.env.DASHBOARD_AUTH || null;
 var SERVER_URL = process.env.SERVER_URL || 'http://localhost:' + SERVER_PORT + '/parse';
 
 _node2.default.initialize(APP_ID);
@@ -259,6 +259,7 @@ _node2.default.serverURL = SERVER_URL;
 _node2.default.masterKey = MASTER_KEY;
 _node2.default.DASHBOARD_AUTH = DASHBOARD_AUTH;
 _node2.default.Cloud.useMasterKey();
+
 
 var BLACKLISTED_KEYS = new Set(['objectId', 'createdAt', 'updatedAt']);
 var ID_MAP = new Map();
