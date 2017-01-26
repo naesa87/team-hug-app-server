@@ -83,10 +83,12 @@ if (IS_DEVELOPMENT) {
     ParseDashboard({
       allowInsecureHTTP: true,
       apps: [{
-        serverURL: '/parse',
+        serverURL: SERVER_URL,
         appId: APP_ID,
         masterKey: MASTER_KEY,
-        appName: 'F8-App-2016',
+        appName: 'Team-Hug-App-2017',
+        javascriptKey: "NOT USED",
+        restKey: "NOT USED",
       }],
       users,
     }, IS_DEVELOPMENT),
