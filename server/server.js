@@ -81,6 +81,7 @@ if (IS_DEVELOPMENT) {
   server.use(
     '/dashboard',
     ParseDashboard({
+      allowInsecureHTTP: true,
       apps: [{
         serverURL: '/parse',
         appId: APP_ID,
@@ -92,19 +93,19 @@ if (IS_DEVELOPMENT) {
   );
 }
 
-server.use(
-  '/graphql',
-  graphQLHTTP((request) => {
-    return {
-      graphiql: IS_DEVELOPMENT,
-      pretty: IS_DEVELOPMENT,
-      schema: getSchema(),
-      rootValue: Math.random(), // TODO: Check credentials, assign user
-    };
-  })
-);
-
-server.use('/', (req, res) => res.redirect('/graphql'));
+// server.use(
+//   '/graphql',
+//   graphQLHTTP((request) => {
+//     return {
+//       graphiql: IS_DEVELOPMENT,
+//       pretty: IS_DEVELOPMENT,
+//       schema: getSchema(),
+//       rootValue: Math.random(), // TODO: Check credentials, assign user
+//     };
+//   })
+// );
+//
+// server.use('/', (req, res) => res.redirect('/graphql'));
 
 server.listen(SERVER_PORT, () => console.log(
   `Server is now running in ${process.env.NODE_ENV || 'development'} mode on ${SERVER_URL}`
