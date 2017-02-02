@@ -53,6 +53,10 @@ function getSchema() {
 
 const server = express();
 
+// Serve static assets from the /public folder
+server.use('/public', express.static(path.join(__dirname, '/public')));
+
+
 server.use(
   '/parse',
   new ParseServer({
@@ -62,8 +66,15 @@ server.use(
     masterKey: MASTER_KEY,
     fileKey: 'f33fc1a9-9ba9-4589-95ca-9976c0d52cd5',
     serverURL: SERVER_URL,
+    push: {
+       android: {
+         senderId: '439066530470',
+         apiKey: 'AIzaSyDWtUG0RXMbsjZ4Z2JvRPZYDaW85mX_rTE'
+       }
+     }
   })
 );
+
 
 console.log("IS_DEVELOPMENT")
 console.log(IS_DEVELOPMENT)
@@ -95,20 +106,16 @@ if (IS_DEVELOPMENT) {
   );
 }
 
-// server.use(
-//   '/graphql',
-//   graphQLHTTP((request) => {
-//     return {
-//       graphiql: IS_DEVELOPMENT,
-//       pretty: IS_DEVELOPMENT,
-//       schema: getSchema(),
-//       rootValue: Math.random(), // TODO: Check credentials, assign user
-//     };
-//   })
-// );
-//
-// server.use('/', (req, res) => res.redirect('/graphql'));
+// Parse Server plays nicely with the rest of your web routes
+server.get('/', function(req, res) {
+  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+});
 
-server.listen(SERVER_PORT, () => console.log(
+var httpServer = require('http').createServer(server);
+
+httpServer.listen(SERVER_PORT, () => console.log(
   `Server is now running in ${process.env.NODE_ENV || 'development'} mode on ${SERVER_URL}`
 ));
+
+// This will enable the Live Query real-time server
+ParseServer.createLiveQueryServer(httpServer);
